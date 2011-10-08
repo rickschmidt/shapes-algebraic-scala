@@ -10,10 +10,11 @@ import java.awt.Color
 
 trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
 
-  def visitPolygon(p: Polygon): R
+  def visitPolygon(rs:Seq[R],p: Polygon): R
+  
   def visitCircle(c:Circle): R
   def visitPoint(p:Point):R
-  def visitFill(f:Shape):R
+  def visitFill(r:R,f:Fill):R
   def visitOutline(s:Shape):R
   def visitRotate(int:Int,s:Shape):R
   def visitStroke(r:R, s:Stroke):R
@@ -27,15 +28,20 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
    */
   override def fold(s: Shape): R = s match {
     case p: Polygon => {
-      println("p: "+p)
-      visitPolygon(p)
+      println("p fold: "+p)
+      println("visitp in fold ")
+      visitPolygon(p.points.map(fold(_)), p)
     }
     // TODO: add missing cases similarly to Location
     case c: Circle=>visitCircle(c)
-    case pt: Point=>visitPoint(pt)
+    case pt: Point=>{
+      println("fold point")
+      println(pt)
+      visitPoint(pt)
+    }
     case f: Fill=>{
       println("fold Fill")
-      visitFill(f.shape)
+      visitFill(fold(f.shape),f)
     }
     case o: Outline=>visitOutline(o)
     case r:Rotate=>visitRotate(r.theta,r)

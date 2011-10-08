@@ -12,19 +12,21 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   // TODO: methods for the other original shapes
   
   // new methods for extended shapes
-  override def visitStroke(r:Int, shape: Stroke) = 1
+  override def visitStroke(r:Int, shape: Stroke) = r
   // TODO: methods for the other additional (extended) shapes
   override def visitRotate(r:Int,s:Shape)=1
   override def visitOutline(s:Shape)=1
-  override def visitFill(f:Shape)={
+  override def visitFill(r:Int,f:Fill)={
     println("fill")
-    1
+    r
   }
-  override def visitPoint(p:Point)=1
+  override def visitPoint(p:Point)=0
   override def visitCircle(c:Circle)=1
-  override def visitPolygon(p:Polygon)={
+  override def visitPolygon(ps:Seq[Int],p:Polygon)={
     
-    println(p)
+    println("visit polygon "+p)
+    println("ps sum: "+ps.sum)
+    
     1
   }
   override def visitLocation(r:Int, l:Location)=1
@@ -47,16 +49,19 @@ object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
   }
   override def visitRotate(r:Int,s:Shape)=ExtendedShapeSize.visitRotate(r,s)+1
   override def visitOutline(s:Shape)=ExtendedShapeSize.visitOutline(s)+1
-  override def visitFill(f:Shape)={
+  override def visitFill(r:Int,f:Fill)={
     println("fill")
-    println(ExtendedShapeSize.visitFill(f)+1)
-    ExtendedShapeSize.visitFill(f)+1
+    println(ExtendedShapeSize.visitFill(r,f)+1)
+    ExtendedShapeSize.visitFill(r,f)+1
   }
-  override def visitPoint(p:Point)=ExtendedShapeSize.visitPoint(p)+1
+  override def visitPoint(p:Point)={
+    
+    ExtendedShapeSize.visitPoint(p)
+  }
   override def visitCircle(c:Circle)=1
-  override def visitPolygon(p:Polygon)={
+  override def visitPolygon(ps:Seq[Int],p:Polygon)={
     println("polygon")
-    ExtendedShapeSize.visitPolygon(p)+1
+    ExtendedShapeSize.visitPolygon(ps:Seq[Int],p:Polygon)
   }
   override def visitLocation(r:Int, l:Location)={
     println("loc")
