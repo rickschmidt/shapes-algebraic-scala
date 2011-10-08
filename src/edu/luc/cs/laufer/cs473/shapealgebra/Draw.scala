@@ -22,6 +22,7 @@ class Draw {
 //    	shapes.map(s1=>{s1.foldLeft(draw(g)(s1))((a,c)=>draw(g)(c))})
       
       
+      
     }
   }
 }
