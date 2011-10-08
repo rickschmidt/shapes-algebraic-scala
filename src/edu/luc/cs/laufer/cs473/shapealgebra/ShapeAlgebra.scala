@@ -16,12 +16,7 @@ trait ShapeAlgebra[R] {
   def fold(s: Shape): R = s match {
     case e: Ellipse => visitEllipse(e)
     case r: Rectangle => visitRectangle(r)
-    case l: Location =>{
-      println("fold loc")
-      println("l : "+l)
-      println("l.shape: "+l.shape)
-      visitLocation(fold(l.shape), l)
-    }
+    case l: Location =>visitLocation(fold(l.shape), l)
     case g: Group => visitGroup(g.shapes.map(fold(_)), g)
   }
 
