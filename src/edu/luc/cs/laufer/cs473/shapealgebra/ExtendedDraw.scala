@@ -7,6 +7,18 @@ class ExtendedDraw extends Draw {
   override def draw(g: Graphics2D)(s: Shape): Unit = s match {
     // TODO: cases for the additional shapes
 	// TODO: reduce Circle to Ellipse (avoid code duplication)
+//      def visitPolygon(rs:Seq[R],p: Polygon): R
+//  def visitCircle(c:Circle): R
+//  def visitPoint(p:Point):R
+//  def visitFill(r:R,f:Fill):R
+//  def visitOutline(r:R,o:Outline):R
+//  def visitRotate(theta:Int,s:Rotate):R
+//  def visitStroke(r:R, s:Stroke):R
+//    case Rectangle(w, h) => g.drawRect(0, 0, w, h)
+    
+    
+    
+    
   	case _ => super.draw(g)(s)
   }
 

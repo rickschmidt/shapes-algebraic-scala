@@ -18,35 +18,36 @@ class BoundingBox extends ShapeAlgebra[Location] {
   override def visitGroup(rs: Seq[Location], g: Group) = {
 	// TODO: implement based on algorithm from previous subproject
 	
-  val locationList= rs map(s1=>{
-        BoundingBox(s1)
-      })
-      
-      
-      
-      val s1=locationList.foldLeft[Location](locationList.head)((a,c)=>{
-        val b=BoundingBox(c)
-        
-
-        val wmax=Math.max(b.x+b.shape.asInstanceOf[Rectangle].width,a.x+a.shape.asInstanceOf[Rectangle].width)
-        val wmin=Math.min(b.x,a.x)
-        val width=(wmax-wmin)
-        
-        val hmax=Math.max(b.y+b.shape.asInstanceOf[Rectangle].height,a.y+a.shape.asInstanceOf[Rectangle].height)
-        val hmin=Math.min(b.y,a.y)
-        val height=(hmax-hmin)
-        
-        
-        Location(a.x,a.y,(Rectangle(width,height)))
-        
-        })
-      
-
-
-      
-      Location(s1.x,s1.y,s1.shape)
-      
+//  val locationList= rs map(s1=>{
+//        BoundingBox(s1)
+//      })
+//      
+//      
+//      
+//      val s1=locationList.foldLeft[Location](locationList.head)((a,c)=>{
+//        val b=BoundingBox(c)
+//        
+//
+//        val wmax=Math.max(b.x+b.shape.asInstanceOf[Rectangle].width,a.x+a.shape.asInstanceOf[Rectangle].width)
+//        val wmin=Math.min(b.x,a.x)
+//        val width=(wmax-wmin)
+//        
+//        val hmax=Math.max(b.y+b.shape.asInstanceOf[Rectangle].height,a.y+a.shape.asInstanceOf[Rectangle].height)
+//        val hmin=Math.min(b.y,a.y)
+//        val height=(hmax-hmin)
+//        
+//        
+//        Location(a.x,a.y,(Rectangle(width,height)))
+//        
+//        })
+//      
+//
+//
+//      
+//      Location(s1.x,s1.y,s1.shape)
+   Location(0,0,Rectangle(0,0))   
     }
+     
 }
 
 object BoundingBox extends BoundingBox
