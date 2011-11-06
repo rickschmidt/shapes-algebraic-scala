@@ -7,12 +7,12 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 
 trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
 
-  def visitPolygon(rs:Seq[R],p: Polygon): R
+  def visitPolygon(p: Polygon): R
   def visitCircle(c:Circle): R
-  def visitPoint(p:Point):R
+ 
   def visitFill(r:R,f:Fill):R
   def visitOutline(r:R,o:Outline):R
-  def visitRotate(theta:Int,s:Rotate):R
+  
   def visitStroke(r:R, s:Stroke):R
 
   /**
@@ -22,12 +22,12 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
     
     
     // TODO: add missing cases similarly to Location
-    case p: Polygon =>visitPolygon(p.points.map(fold(_)), p)
+    case p: Polygon =>visitPolygon(p)
     case c: Circle=>visitCircle(c)
-    case pt: Point=>visitPoint(pt)   
+    
     case f: Fill=>visitFill(fold(f.shape),f)    
     case o: Outline=>visitOutline(fold(o.shape),o)
-    case r:Rotate=>visitRotate(r.theta,r)
+    
     case st:Stroke=>visitStroke(fold(st.shape),st)
  
     

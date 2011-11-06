@@ -1,0 +1,12 @@
+compile
+run
+~compile
+compile
+test
+compile
+test
+test-run
+console-project 
+sbt
+test
+quit

@@ -1,0 +1,35 @@
+<project name="MyProject" default="dist" basedir=".">
+<property name="src" value="./src/edu/luc/cs/laufer/cs473/shapealgebra" />
+<property name="lib" value="./lib" />
+<property name="classes" value="./bin/edu/luc/cs/laufer/cs473/shapealgebra" />
+<property name="test.class.name" value="./test/edu/luc/cs/laufer/cs473/shapealgebra/*.scala" />
+
+<path id="test.classpath">
+  <pathelement location="${classes}" />
+  <pathelement location="/usr/share/junit/junit.jar" />
+  <fileset dir="${lib}">
+    <include name="**/*.jar"/>
+  </fileset>
+</path>
+<property name="dest.dir" value="build" />
+<property name="dest.dir.classes" value="${dest.dir}/bin" />
+<path id="test.class.path">
+	<pathelement location="${dest.dir.classes}" /> 
+</path>
+<path id="test.class.path">
+	<pathelement location="${dest.dir.classes}" /> 
+</path>
+<!-- <target name="test">
+  <junit fork="yes" haltonfailure="yes">
+    <test name="${test.class.name}" />
+    <formatter type="plain" usefile="false" />
+    <classpath refid="test.classpath" />
+  </junit>
+</target> -->
+<target name="echo">
+	<junit>
+	<classpath refid="/usr/share/junit/junit.jar" />
+	<test name="test" />
+</junit>
+</target>
+</project>

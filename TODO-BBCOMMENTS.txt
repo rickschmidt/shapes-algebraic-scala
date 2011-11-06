@@ -1,0 +1,109 @@
+MainGraphical.scala: draw differently.
+TestDraw.scala test failed at the complex one.
+TestExtendedDraw.scala test failed.
+ 
+#### 1.shapeAlgebras.scala -1
+These code under visitGroup should make sense to some extent, but you comment all those.
+####2. Draw.scala -0.5  
+In def draw, should reset g’s location. -0.5
+ 
+ case Location(x,y,shape)=>{
+ g.translate(x,y)
+ draw(g)(shape) 
+}
+ 
+####3. moreShapes.scala -1  
+ 
+* Polygon need to extends Composite, Stroke/Fill/Outline/Rotate should extends Decorator(Shape), if you do so, no need to check the parameters.
+ 
+case class Stroke(color: Color, shape:Shape) extends Shape
+case class Fill(shape:Shape) extends Shape
+case class Outline(shape:Shape) extends Shape
+case class Polygon(points:Point*) extends Shape
+case class Rotate(theta:Int, shape:Shape) extends Shape
+ 
+####4. ExtendedShapeAlgebra.scala -2.5
+ 
+This should have been left unchanged. Interface changes are NEVER OK without discussion leading to explicit approval. -1
+ 
+ defvisitPolygon(rs:Seq[R],p: Polygon): R
+ 
+Consequence of the change above. NOT OK.
+ 
+ case pl: Polygon => visitPolygon(pl.points.map(fold(_)), pl)
+ 
+There should not be a visitPoint. -0.5
+ 
+ defvisitPoint(p:Point):R
+ 
+Also, there should not be a case for Point
+ 
+ case p: Point => visitPoint(p)
+ 
+R is the result type of the operation on a shape tree. It usually has nothing to do with the rotation angle. -1
+ 
+ def visitRotate(theta:Int,s:Rotate):R
+Also
+  caser:Rotate=>visitRotate(r.theta,r)
+ 
+####5.extendedShapeAlgebras.scala -2.2
+ 
+In ExtendedShapeSize -0.5
+ 
+ 
+ override def visitLocation(r:Int, l:Location)=1
+ 
+  override defvisitGroup(rs:Seq[Int],g:Group)={
+ {
+ println("here")
+ vala=rs.foldLeft[Int](1)((a,c)=>{
+ println("c "+c)
+ println("a "+a)
+ a+c
+ })
+//  ExtendedShapeSize.visitGroup(rs.foldLeft[Int](1)((a,c)=>a+c),g)
+ 1
+}
+ 
+ override def visitRectangle(r:Rectangle)=1 
+ 
+   override def visitRotate(theta:Int,r:Rotate)=1
+ 
+  override def visitOutline(r:Int,o:Outline)=1
+ 
+In ExtendedShapeDepth
+ 
+These should be equal to 1. -0.2
+ 
+*override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)*
+ 
+ override defvisitPolygon(ps:Seq[Int],p:Polygon)=ExtendedShapeSize.visitPolygon(ps:Seq[Int],p:Polygon)
+ 
+*These should be = 1+r, that’s the point of having the fold outside the visitor producing r. -0.5*
+ 
+ 
+override defvisitStroke(r:Int,s:Stroke)=ExtendedShapeSize.visitStroke(r,s)+1*
+ *override defvisitRotate(r:Int,s:Rotate)=ExtendedShapeSize.visitRotate(r,s)+1 _DELETED_*
+ *override def visitOutline(r:Int,o:Outline)=ExtendedShapeSize.visitOutline(r,o)+1*
+*override defvisitFill(r:Int,f:Fill)=ExtendedShapeSize.visitFill(r,f)+1*
+ 
+ *override def visitLocation(r:Int, l:Location)=ShapeSize.visitLocation(fold(l.shape), l)+1*
+ 
+ 
+*Accordingly, 1+rs.max. -0.5*
+ 
+ *override defvisitGroup(rs:Seq[Int],g:Group)=ShapeSize.visitGroup(rs,g)*
+In ExtendedBoundingBox
+ 
+No need for visitPoint anywhere
+ 
+ override defvisitPoint(p:Point)=Location(0,0,p)
+ 
+The consequence of changing visitPolygon, also in visitRotate, r should have type Location. -0.5
+ 
+override def visitRotate(r:Int,s1:Rotate)={
+ 
+override defvisitPolygon(ps:Seq[Location],p:Polygon)={
+ 
+####6. ExtendedDraw.scala -4
+No changes has been made.

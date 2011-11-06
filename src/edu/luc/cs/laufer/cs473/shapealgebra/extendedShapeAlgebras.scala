@@ -6,24 +6,22 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
   override def visitStroke(r:Int, shape: Stroke) = r
-  override def visitRotate(theta:Int,r:Rotate)=1
+  //override def visitRotate(theta:Int,r:Rotate)=1
   override def visitOutline(r:Int,o:Outline)=1
   override def visitFill(r:Int,f:Fill)=r
-  override def visitPoint(p:Point)=0
+  //override def visitPoint(p:Point)=0
   override def visitCircle(c:Circle)=1
-  override def visitPolygon(ps:Seq[Int],p:Polygon)=1
+  override def visitPolygon(p:Polygon)=1
   override def visitLocation(r:Int, l:Location)=1
   override def visitGroup(rs:Seq[Int],g:Group)={
-    {
-    println("here")
+        
     val a=rs.foldLeft[Int](1)((a,c)=>{
-      println("c "+c)
-      println("a "+a)
+
       a+c
     })
 //   ExtendedShapeSize.visitGroup(rs.foldLeft[Int](1)((a,c)=>a+c),g)
     1
-    }
+    
     
   }
   override def visitRectangle(r:Rectangle)=1  
@@ -32,16 +30,16 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
 
 object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
   // TODO: all methods defined from scratch
-  override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
-  override def visitStroke(r:Int,s:Stroke)=ExtendedShapeSize.visitStroke(r,s)+1
-  override def visitRotate(r:Int,s:Rotate)=ExtendedShapeSize.visitRotate(r,s)+1
-  override def visitOutline(r:Int,o:Outline)=ExtendedShapeSize.visitOutline(r,o)+1
-  override def visitFill(r:Int,f:Fill)=ExtendedShapeSize.visitFill(r,f)+1
-  override def visitPoint(p:Point)=ExtendedShapeSize.visitPoint(p)
+  override def visitEllipse(e: Ellipse) = 1
+  override def visitStroke(r:Int,s:Stroke)=1+r
+//  override def visitRotate(r:Int,s:Rotate)=1+r
+  override def visitOutline(r:Int,o:Outline)=1+r
+  override def visitFill(r:Int,f:Fill)=1+r
+//  override def visitPoint(p:Point)=ExtendedShapeSize.visitPoint(p)
   override def visitCircle(c:Circle)=1
-  override def visitPolygon(ps:Seq[Int],p:Polygon)=ExtendedShapeSize.visitPolygon(ps:Seq[Int],p:Polygon)
+  override def visitPolygon(p:Polygon)=ExtendedShapeSize.visitPolygon(p:Polygon)
   override def visitLocation(r:Int, l:Location)=ShapeSize.visitLocation(fold(l.shape), l)+1
-  override def visitGroup(rs:Seq[Int],g:Group)=ShapeSize.visitGroup(rs,g)
+  override def visitGroup(rs:Seq[Int],g:Group)=1+rs.max
   override def visitRectangle(r:Rectangle)=1
   
 }
@@ -51,17 +49,12 @@ class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location
   // TODO: methods for the other additional (extended) shapes
   override def visitStroke(r: Location, s: Stroke) = r
   
-  override def visitRotate(r:Int,s1:Rotate)={
+ /* override def visitRotate(r:Int,s1:Rotate)={
     
     
     val s=ExtendedBoundingBox(s1.shape)
     
-    
-    
-    
-    
-    
-    
+            
     val leftWidth=Math.sin(Math.toRadians(r))*s.shape.asInstanceOf[Rectangle].height
     val rightWidth=Math.sin(Math.toRadians(90-r))*s.shape.asInstanceOf[Rectangle].width
     
@@ -89,24 +82,25 @@ class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location
     val width=Math.round(leftWidth)+Math.round(rightWidth).toInt
     //0 for y only works for extended 1 and 2
     Location(x,0,Rectangle(Math.floor(leftWidth).toInt+Math.round(rightWidth).toInt,Math.round(yheight).toInt))
-  }
+  }*/
   override def visitOutline(r:Location,o:Outline)=r
   override def visitFill(r:Location,f:Fill)=r
-  override def visitPoint(p:Point)=Location(0,0,p)
-  override def visitPolygon(ps:Seq[Location],p:Polygon)={
-    val xs=ps map(p=>p.shape.asInstanceOf[Point].x)
-    val ys=ps map(p=>p.shape.asInstanceOf[Point].y)
-    
-    val xsMin=xs.min
-    val ysMin=ys.min    
-    val xsMax=xs.max
-    val ysMax=ys.max    
-    val width=xsMax-xsMin
-    val height=ysMax-ysMin
-
-    
-    
-    Location(xsMin,ysMin,Rectangle(width,height))
+  override def visitPolygon(p:Polygon)={
+    println("points pre "+p.points.toList)
+    println("points post "+p.points.toList.unzip{e => (e.x, e.y)})
+    val xsys=p.points.toList.unzip{e=>{
+      (e.x,e.y)
+      }
+    }
+    println("xs: "+xsys._1.min)
+    //width=xs.max -xs.min  
+    //height=ys.max-ys.min
+    //For the sake of readability...this could be more compact.
+    val x=xsys._1.min
+    val y=xsys._2.min
+    val width=xsys._1.max-x
+    val height=xsys._2.max-y
+    Location(xsys._1.min,xsys._2.min,Rectangle(width,height))
   }
   override def visitCircle(c:Circle)=visitEllipse(Ellipse(c.radius,c.radius))
  

@@ -20,6 +20,7 @@ class ExtendedDraw extends Draw {
     
     
   	case _ => super.draw(g)(s)
+
   }
 
   def fill(g: Graphics2D)(s: Shape): Unit = s match {
