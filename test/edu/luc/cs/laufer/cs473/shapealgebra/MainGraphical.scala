@@ -21,9 +21,9 @@ object MainGraphical {
     contents = new Panel {
       preferredSize = new Dimension(w + 2 * padding, h + 2 * padding)
 	  override def paint(g: Graphics2D) = {
-		g.translate(-x + padding, -y + padding)
-		Draw(g)(s)
-		Draw(g)(b)
+		//g.translate(-x + padding, -y + padding)
+		//Draw(g)(s)
+		//Draw(g)(b)
 	  }
     }
 	pack()

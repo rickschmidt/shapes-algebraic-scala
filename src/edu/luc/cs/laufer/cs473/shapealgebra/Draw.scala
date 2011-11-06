@@ -10,7 +10,8 @@ class Draw {
     
     case Location(x,y,shape)=>{
       g.translate(x,y)
-      draw(g)(shape)       
+      draw(g)(shape) 
+      g.translate(-x,-y)
     }
     
     case Group(shapes @ _*)=>{

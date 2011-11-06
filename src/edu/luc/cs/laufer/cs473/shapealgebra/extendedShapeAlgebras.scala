@@ -4,9 +4,9 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 
 
 object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
-  override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
+  override def visitEllipse(e: Ellipse) = 1
   override def visitStroke(r:Int, shape: Stroke) = r
-  override def visitRotate(theta:Int,r:Rotate)=1
+  override def visitRotate(theta:Int,r:Rotate)=fold(r.shape)
   override def visitOutline(r:Int,o:Outline)=1
   override def visitFill(r:Int,f:Fill)=r
   //override def visitPoint(p:Point)=0
@@ -51,7 +51,7 @@ object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
   // TODO: all methods defined from scratch
   override def visitEllipse(e: Ellipse) = 1
   override def visitStroke(r:Int,s:Stroke)=1+r
-  override def visitRotate(r:Int,s:Rotate)=1+ExtendedShapeSize.visitRotate(r,s)
+  override def visitRotate(r:Int,s:Rotate)=1+fold(s.shape)
   override def visitOutline(r:Int,o:Outline)=1+r
   override def visitFill(r:Int,f:Fill)=1+r
 //  override def visitPoint(p:Point)=ExtendedShapeSize.visitPoint(p)
