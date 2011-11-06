@@ -14,7 +14,7 @@ trait ExtendedShapeAlgebra[R] extends ShapeAlgebra[R] {
   def visitOutline(r:R,o:Outline):R
   
   def visitStroke(r:R, s:Stroke):R
-
+  def visitRotate(theta:Int,s:Shape):R
   /**
    * The extended catamorphism for shapes.
    */
