@@ -6,24 +6,43 @@ package edu.luc.cs.laufer.cs473.shapealgebra
 object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   override def visitEllipse(e: Ellipse) = ShapeSize.visitEllipse(e)
   override def visitStroke(r:Int, shape: Stroke) = r
-  override def visitRotate(theta:Int,r:Shape)=1
+  override def visitRotate(theta:Int,r:Rotate)=1
   override def visitOutline(r:Int,o:Outline)=1
   override def visitFill(r:Int,f:Fill)=r
   //override def visitPoint(p:Point)=0
   override def visitCircle(c:Circle)=1
   override def visitPolygon(p:Polygon)=1
-  override def visitLocation(r:Int, l:Location)=1
-  override def visitGroup(rs:Seq[Int],g:Group)={
-        
-    val a=rs.foldLeft[Int](1)((a,c)=>{
-
-      a+c
-    })
-//   ExtendedShapeSize.visitGroup(rs.foldLeft[Int](1)((a,c)=>a+c),g)
-    1
+  override def visitLocation(r:Int, l:Location)=r
+  override def visitGroup(rs:Seq[Int],g:Group)=rs.sum
+//  {
+//    val a=g.shapes.foldLeft[Int](0)((a,c)=>{
+//      println("c "+c)
+//      a+1
+//    })
+//    println("a "+a)
+//    a
+//  }
+//  {
+//    val h=g.shapes.map(c=>ExtendedBoundingBox(c))
+//    println("h "+h.size)
+//    h.size
+//  }
     
-    
-  }
+//    ExtendedShapeSize.visitGroup(rs,g)
+//  {
+//        println("rs "+rs)
+//        println("g "+g.shapes)
+//       
+//        
+//    val a=rs.foldLeft[Int](1)((a,c)=>{
+//    	ExtendedShapeSize.visitGroup(rs,g)
+//     
+//    })
+////   ExtendedShapeSize.visitGroup(rs.foldLeft[Int](1)((a,c)=>a+c),g)
+//    
+//    
+//    
+//  }
   override def visitRectangle(r:Rectangle)=1  
   
 }
@@ -32,7 +51,7 @@ object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
   // TODO: all methods defined from scratch
   override def visitEllipse(e: Ellipse) = 1
   override def visitStroke(r:Int,s:Stroke)=1+r
-  override def visitRotate(r:Int,s:Shape)=1+r
+  override def visitRotate(r:Int,s:Rotate)=1+ExtendedShapeSize.visitRotate(r,s)
   override def visitOutline(r:Int,o:Outline)=1+r
   override def visitFill(r:Int,f:Fill)=1+r
 //  override def visitPoint(p:Point)=ExtendedShapeSize.visitPoint(p)
@@ -49,40 +68,41 @@ class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location
   // TODO: methods for the other additional (extended) shapes
   override def visitStroke(r: Location, s: Stroke) = r
   
-  override def visitRotate(r:Int,s1:Shape)={
+  override def visitRotate(r:Location,s1:Rotate)={
     
     
-//    val s=ExtendedBoundingBox(s1.shape)
-//    
-//            
-//    val leftWidth=Math.sin(Math.toRadians(r))*s.shape.asInstanceOf[Rectangle].height
-//    val rightWidth=Math.sin(Math.toRadians(90-r))*s.shape.asInstanceOf[Rectangle].width
-//    
-//    val x=(s.x-leftWidth).toInt
-//    
-//    val x1=s.shape.asInstanceOf[Rectangle].height
-//    val y1=s.shape.asInstanceOf[Rectangle].width
-//    val r1=Math.sqrt(Math.pow(x1,2)+Math.pow(y1,2))
-//    val theta=Math.atan2(y1,x1)
-//    
-//    val xheight=r1*Math.cos(Math.toRadians(r+(Math.atan(s.shape.asInstanceOf[Rectangle].height/s.shape.asInstanceOf[Rectangle].width))))
-//    
-//    
-//    val deg=90-r
-//    val theta2=Math.atan(s.shape.asInstanceOf[Rectangle].height/s.shape.asInstanceOf[Rectangle].width)
-//    val t3=90-Math.toDegrees(theta2)
-//    
-//    
-//    
-//    val yheight=r1*Math.sin(Math.toRadians(t3+r))
-//
-//
-//
-//    
-//    val width=Math.round(leftWidth)+Math.round(rightWidth).toInt
+    val s=ExtendedBoundingBox(s1.shape)
+    println("S is "+s)
+    
+            
+    val leftWidth=Math.sin(Math.toRadians(s1.theta))*s.shape.asInstanceOf[Rectangle].height
+    val rightWidth=Math.sin(Math.toRadians(90-s1.theta))*s.shape.asInstanceOf[Rectangle].width
+    
+    val x=(s.x-leftWidth).toInt
+    
+    val x1=s.shape.asInstanceOf[Rectangle].height
+    val y1=s.shape.asInstanceOf[Rectangle].width
+    val r1=Math.sqrt(Math.pow(x1,2)+Math.pow(y1,2))
+    val theta=Math.atan2(y1,x1)
+    
+    val xheight=r1*Math.cos(Math.toRadians(s1.theta+(Math.atan(s.shape.asInstanceOf[Rectangle].height/s.shape.asInstanceOf[Rectangle].width))))
+    
+    
+    val deg=90-s1.theta
+    val theta2=Math.atan(s.shape.asInstanceOf[Rectangle].height/s.shape.asInstanceOf[Rectangle].width)
+    val t3=90-Math.toDegrees(theta2)
+    
+    
+    
+    val yheight=r1*Math.sin(Math.toRadians(t3+s1.theta))
+
+
+
+    
+    val width=Math.round(leftWidth)+Math.round(rightWidth).toInt
 //    //0 for y only works for extended 1 and 2
-//    Location(x,0,Rectangle(Math.floor(leftWidth).toInt+Math.round(rightWidth).toInt,Math.round(yheight).toInt))
-    Location(1,1,Rectangle(1,1))
+    Location(x,0,Rectangle(Math.floor(leftWidth).toInt+Math.round(rightWidth).toInt,Math.round(yheight).toInt))
+//    Location(1,1,Rectangle(1,1))
   }
   override def visitOutline(r:Location,o:Outline)=r
   override def visitFill(r:Location,f:Fill)=r
