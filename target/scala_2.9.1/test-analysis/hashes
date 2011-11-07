@@ -1,2 +1,16 @@
 #Source Hashes
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestFixturesExtended.scala=e58541ac0b7dd1204b45aed35f8eafa9734b2e7a
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphical.scala=b6930d5c759eaca38e602177e8bf38ef4a9246a1
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestFixtures.scala=f568b9b4f0ef98299433a0c925050467557a70f0
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphicalExtended.scala=f15c7b451eff673d7ccae2efa83d16f48fc88652
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedDraw.scala=2eaeb5d92e1cb0624806f77428638a0457007349
+test/edu/luc/cs/laufer/cs473/shapealgebra/BufferedImageEquality.scala=7948ad3ee971c87fa15a77188f9e12ffe177df4b
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapeSize.scala=e2fc1725b7d51110cd31a0392777fc6b6a25aeb9
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapesValidity.scala=5efbbed3151d92d765650111ec200c42980b6158
+test/edu/luc/cs/laufer/cs473/shapealgebra/Main.scala=2c9f397d6659bf66b8304f86950105c11c08758b
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeSize.scala=195224bfb3eb4291739b34c7bd5a619e2e9aeaf8
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestBoundingBox.scala=4c7fce6431a5f5e977e039f013388fcc13a99f25
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestDraw.scala=1ffc97a4f30ebffecfaafd3f720fdcb2abf205d7
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedBoundingBox.scala=6f9b06a32980167a577203b7005cd7fb23dedf09
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeDepth.scala=c2675ccb4d1e0fc009d90876f4d8bb7f8876830e

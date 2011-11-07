@@ -38,7 +38,7 @@ object MainGraphical {
     location = new AWTPoint(w + 2 * padding, 0)
     contents = new Panel {
       preferredSize = new Dimension(470 + 2 * padding, 320 + 2 * padding)
-	  override def paint(g: Graphics2D) = {
+	  override def paint(g: Graphics2D) = {       
     	g.translate(-10, -60)
     	paintComplexGroup(g)
 	  }

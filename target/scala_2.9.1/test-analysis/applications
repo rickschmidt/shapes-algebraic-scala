@@ -1,2 +1,5 @@
 #Classes with main methods
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphicalExtended.scala=edu.luc.cs.laufer.cs473.shapealgebra.MainGraphicalExtended
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphical.scala=edu.luc.cs.laufer.cs473.shapealgebra.MainGraphical
+test/edu/luc/cs/laufer/cs473/shapealgebra/Main.scala=edu.luc.cs.laufer.cs473.shapealgebra.Main

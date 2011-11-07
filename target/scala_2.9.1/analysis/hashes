@@ -1,2 +1,10 @@
 #Source Hashes
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+src/edu/luc/cs/laufer/cs473/shapealgebra/ShapeAlgebra.scala=12d90bae8c4d82b679c7d46b3b30167aa79b2ef5
+src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedShapeAlgebra.scala=25ad6fcb773ff61e48a8ac1de8e6d1d98b0abd97
+src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedDraw.scala=a81001c6838b55b4d66312f89ebd3d29968c0e95
+src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala=a2c13b1141499db7e2f78537a20bbb20d41b279a
+src/edu/luc/cs/laufer/cs473/shapealgebra/moreShapes.scala=33063dfa1be755594ec6894fceeaf46cc512a69f
+src/edu/luc/cs/laufer/cs473/shapealgebra/shapes.scala=b5e626e0b205650c688350621f15af894cf1bba6
+src/edu/luc/cs/laufer/cs473/shapealgebra/shapeAlgebras.scala=a184e36182074c5a91aa506a24abd0d46f1fb1b0
+src/edu/luc/cs/laufer/cs473/shapealgebra/Draw.scala=580a7490760b588adf5723e9d999425437812052

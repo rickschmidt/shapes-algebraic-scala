@@ -1,2 +1,10 @@
 #Tests
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedBoundingBox.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestExtendedBoundingBox<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapesValidity.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestShapesValidity<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapeSize.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestShapeSize<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestBoundingBox.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestBoundingBox<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeSize.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestExtendedShapeSize<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeDepth.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestExtendedShapeDepth<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestDraw.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestDraw<<org.scalatest.Suite
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedDraw.scala=edu.luc.cs.laufer.cs473.shapealgebra.TestExtendedDraw<<org.scalatest.Suite

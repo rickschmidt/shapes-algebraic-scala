@@ -1,2 +1,16 @@
 #Source Dependencies
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestFixturesExtended.scala=test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphicalExtended.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeDepth.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedBoundingBox.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeSize.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedDraw.scala
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphical.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestFixtures.scala=test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeDepth.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapeSize.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphical.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/Main.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestBoundingBox.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestDraw.scala
+test/edu/luc/cs/laufer/cs473/shapealgebra/MainGraphicalExtended.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedDraw.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/BufferedImageEquality.scala=test/edu/luc/cs/laufer/cs473/shapealgebra/TestDraw.scala\:test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedDraw.scala
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapeSize.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestShapesValidity.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/Main.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeSize.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestBoundingBox.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestDraw.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedBoundingBox.scala=
+test/edu/luc/cs/laufer/cs473/shapealgebra/TestExtendedShapeDepth.scala=

@@ -1,2 +1,10 @@
 #Source Dependencies
-#Sun Nov 06 07:56:32 CST 2011
+#Mon Nov 07 11:51:10 CST 2011
+src/edu/luc/cs/laufer/cs473/shapealgebra/ShapeAlgebra.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/shapeAlgebras.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedShapeAlgebra.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedShapeAlgebra.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedDraw.scala=
+src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/shapeAlgebras.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/moreShapes.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedShapeAlgebra.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/shapes.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/Draw.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/ShapeAlgebra.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedShapeAlgebra.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedDraw.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/moreShapes.scala\:src/edu/luc/cs/laufer/cs473/shapealgebra/shapeAlgebras.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/shapeAlgebras.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/extendedShapeAlgebras.scala
+src/edu/luc/cs/laufer/cs473/shapealgebra/Draw.scala=src/edu/luc/cs/laufer/cs473/shapealgebra/ExtendedDraw.scala

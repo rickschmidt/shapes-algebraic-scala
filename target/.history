@@ -10,3 +10,34 @@ console-project
 sbt
 test
 quit
+test
+quit
+test
+quit
+test
+quit
+test
+compile
+test
+quit
+test
+quit
+test
+quit
+test
+quit
+test
+quit
+test
+quit
+test
+sbt reload update
+quit
+test
+test TestShapeSize
+test-only edu.luc.cs.laufer.cs473.shapealgebra.TestShapeSize 
+~test
+~ test
+test-only TestExtendedBoundedBox.scala
+test-only test/edu/luc/cs/laufer/comp473/shapealgebra/TestExtendedBoundedBox.scala
+quit
