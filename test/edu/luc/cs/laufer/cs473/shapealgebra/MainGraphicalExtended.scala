@@ -41,7 +41,7 @@ object MainGraphicalExtended {
       preferredSize = new Dimension(512 + 2 * padding, 567 + 2 * padding)
 	  override def paint(g: Graphics2D) = {
     	g.translate(239, -53)
-   		paintExtendedGroupRotate(g)
+   		paintExtendedGroupRotate(g)    	
 	  }
     }
 	pack()

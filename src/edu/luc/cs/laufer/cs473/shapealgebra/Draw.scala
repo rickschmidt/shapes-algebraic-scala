@@ -15,12 +15,12 @@ class Draw {
     }
     
     case Group(shapes @ _*)=>{
-    	
-    	val shapeList=shapes map(s1=>{
-    		draw(g)(s1)
-    		
+    	shapes.map(s => {
+    	  println("s in group is "+s)
+    	  draw(g)(s)
     	})
-//    	shapes.map(s1=>{s1.foldLeft(draw(g)(s1))((a,c)=>draw(g)(c))})
+    	
+
       
       
       

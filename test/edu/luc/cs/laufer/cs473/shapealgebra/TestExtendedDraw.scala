@@ -7,7 +7,7 @@ import org.scalatest.FunSuite
 import java.awt.{Color,Graphics}
 import java.awt.image.BufferedImage
 
-import TestFixturesExtended.{extendedGroup,paintExtendedGroup}
+import TestFixturesExtended.{extendedGroup,paintExtendedGroup,simpleStroke,simpleCircle}
 
 @RunWith(classOf[JUnitRunner])
 class TestExtendedDraw extends FunSuite with BufferedImageEquality {
@@ -19,4 +19,24 @@ class TestExtendedDraw extends FunSuite with BufferedImageEquality {
 	paintExtendedGroup(j.createGraphics())
 	assertEquals(i, j)
   }
+  
+//  test("simpleStroke"){
+//    val s=simpleStroke
+//    val i = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
+//	ExtendedDraw(i.createGraphics())(s)
+//	val j = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
+//	paintExtendedGroup(j.createGraphics())
+//	assertEquals(i, j)
+//  }
+//  
+//  test("simpleCircle"){
+//    val s=simpleCircle
+//    val i = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
+//	ExtendedDraw(i.createGraphics())(s)
+//	val j = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
+//    val g=j.createGraphics()
+//	paintExtendedGroup(j.createGraphics())
+//	assertEquals(i, j)
+//  }
+
 }

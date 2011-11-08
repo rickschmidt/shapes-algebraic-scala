@@ -61,28 +61,30 @@ object TestFixturesExtended {
 
   val extendedGroupRotate = 
     Location(50, 100, 
-      Group( 
-        Rotate(60, 
-          Group(
-            Circle(20),
-	        Location(150, 50,
-		      Stroke(Color.RED,
-		        Group(
-			      Fill(Rectangle(50, 30)),
-			      Rectangle(300, 60),
-			      Location(100, 200,
-			        Stroke(Color.ORANGE,
-				      Fill(Circle(50))
-			        )
-			      )
-		        )
-		      )
-	        ),
-	        Rectangle(100, 200)
-	      )
-	    ),
-	    Location(-93, 341, Ellipse(100, 50))
-	  )
+//      Group( 
+//        Rotate(60, 
+//          Group(
+//            Circle(20),
+//	        Location(150, 50,
+//		      Stroke(Color.RED,
+//		        Group(
+//			      Fill(Rectangle(50, 30)),
+//			      Rectangle(300, 60),
+//			      Location(100, 200,
+//			        Stroke(Color.ORANGE,
+//				      Fill(Circle(50))
+//			        )
+//			      )
+//		        )
+//		      )
+//	        ),
+//	        Rectangle(100, 200)
+//	      )
+//	    ),
+//	    Location(-93, 341, Ellipse(100, 50))
+//	  )
+        Stroke(Color.red,Fill(Rectangle(100,100)))
+        
     )
 
   def paintExtendedGroup(g: Graphics2D) = {
@@ -115,5 +117,10 @@ object TestFixturesExtended {
 	g.rotate(- scala.math.Pi / 3)
 	g.translate(-93, 341)
 	g.drawArc(-100, -50, 200, 100, 0, 360)
+  }
+  //TODO Delete after testing
+  val simpleCircle=Circle(20)
+  def paintSimpleCircle(g:Graphics2D)={
+    g.drawArc(10,10,20,20,0,180)
   }
 }
