@@ -143,7 +143,9 @@ class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location
     val width=Math.round(leftWidth)+Math.round(rightWidth).toInt
 //    //0 for y only works for extended 1 and 2
     println(Location(x,0,Rectangle((leftWidth+rightWidth).toInt,r1.toInt)))
-    Location(xsys._1.min.toInt,xsys._2.min.toInt,Rectangle((leftWidth+rightWidth).toInt,r1.toInt))
+//    h' = |w*sin(alpha)| + | h* cos(alpha)|
+//    w' = |w* cos(alpha)| + |h * sin(alpha)|
+    Location(xsys._1.min.toInt,xsys._2.min.toInt,Rectangle((xsys._1.max-xsys._1.min).toInt,(xsys._2.max-xsys._2.min).toInt))
 //    Location(1,1,Rectangle(1,1))
   }
   override def visitOutline(r:Location,o:Outline)=r

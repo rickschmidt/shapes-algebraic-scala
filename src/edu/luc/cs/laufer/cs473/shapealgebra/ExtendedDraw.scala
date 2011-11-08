@@ -14,7 +14,9 @@ class ExtendedDraw extends Draw {
 //  def visitOutline(r:R,o:Outline):R
 //  def visitRotate(theta:Int,s:Rotate):R
 //  def visitStroke(r:R, s:Stroke):R
-//    case Rectangle(w, h) => g.drawRect(0, 0, w, h)
+    case Rectangle(w, h) => g.drawRect(0, 0, w, h)
+    case Circle(c)=>g.drawOval(0,0,1,1)
+//    case Stroke(java.awt.Color.BLACK,s)=>g.setStroke(createStrokedShape(s))
     
     
     
