@@ -61,30 +61,29 @@ object TestFixturesExtended {
 
   val extendedGroupRotate = 
     Location(50, 100, 
-//      Group( 
-//        Rotate(60, 
-//          Group(
-//            Circle(20),
-//	        Location(150, 50,
-//		      Stroke(Color.RED,
-//		        Group(
-//			      Fill(Rectangle(50, 30)),
-//			      Rectangle(300, 60),
-//			      Location(100, 200,
-//			        Stroke(Color.ORANGE,
-//				      Fill(Circle(50))
-//			        )
-//			      )
-//		        )
-//		      )
-//	        ),
-//	        Rectangle(100, 200)
-//	      )
-//	    ),
-//	    Location(-93, 341, Ellipse(100, 50))
-//	  )
-        Stroke(Color.red,Fill(Rectangle(100,100)))
-        
+      Group( 
+        Rotate(60, 
+          Group(
+            Circle(20),
+	        Location(150, 50,
+		      Stroke(Color.RED,
+		        Group(
+			      Fill(Rectangle(50, 30)),
+			      Rectangle(300, 60),
+			      Location(100, 200,
+			        Stroke(Color.ORANGE,
+				      Fill(Circle(50))
+			        )
+			      )
+		        )
+		      )
+	        ),
+	        Rectangle(100, 200)
+	      )
+	    ),
+	    Location(-93, 341, Ellipse(100, 50))
+	    
+	  )
     )
 
   def paintExtendedGroup(g: Graphics2D) = {
