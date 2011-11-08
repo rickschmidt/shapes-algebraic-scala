@@ -7,16 +7,16 @@ import org.scalatest.FunSuite
 import java.awt.{Color,Graphics}
 import java.awt.image.BufferedImage
 
-import TestFixturesExtended.{extendedGroup,paintExtendedGroup}
+import TestFixturesExtended.{simpleShear,paintSimpleShear}
 
 @RunWith(classOf[JUnitRunner])
-class TestExtendedDraw extends FunSuite with BufferedImageEquality {
+class TestExtendedDrawShear extends FunSuite with BufferedImageEquality {
   test("complex") {
-	val s = extendedGroup
+	val s = simpleShear
 	val i = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
 	ExtendedDraw(i.createGraphics())(s)
 	val j = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB)
-	paintExtendedGroup(j.createGraphics())
+	paintSimpleShear(j.createGraphics())
 	assertEquals(i, j)
   }
   

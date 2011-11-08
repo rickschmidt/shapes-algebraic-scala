@@ -13,8 +13,9 @@ object ExtendedShapeSize extends ExtendedShapeAlgebra[Int] {
   override def visitPolygon(p:Polygon)=1
   override def visitLocation(r:Int, l:Location)=r
   override def visitGroup(rs:Seq[Int],g:Group)=rs.sum
-
-  override def visitRectangle(r:Rectangle)=1  
+  override def visitRectangle(r:Rectangle)=1
+  
+  override def visitShear(r:Int,s:Shear)=r
   
 }
 
@@ -31,6 +32,7 @@ object ExtendedShapeDepth extends ExtendedShapeAlgebra[Int] {
   override def visitGroup(rs:Seq[Int],g:Group)=1+rs.max
   override def visitRectangle(r:Rectangle)=1
   
+  override def visitShear(r:Int,s:Shear)=1+r
 }
 
 class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location] {
@@ -93,7 +95,7 @@ class ExtendedBoundingBox extends BoundingBox with ExtendedShapeAlgebra[Location
   }
   override def visitCircle(c:Circle)=visitEllipse(Ellipse(c.radius,c.radius))
  
-  
+  override def visitShear(r:Location,s:Shear)=r
 
 }
 

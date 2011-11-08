@@ -86,6 +86,10 @@ object TestFixturesExtended {
 	  )
     )
 
+    
+    val simpleShear = 
+      Location(50,100,Shear(2,2,Rectangle(100,100)))
+    	
   def paintExtendedGroup(g: Graphics2D) = {
 	g.translate(50, 100)
 	g.drawArc(-20, -20, 40, 40, 0, 360)
@@ -117,9 +121,11 @@ object TestFixturesExtended {
 	g.translate(-93, 341)
 	g.drawArc(-100, -50, 200, 100, 0, 360)
   }
-  //TODO Delete after testing
-  val simpleCircle=Circle(20)
-  def paintSimpleCircle(g:Graphics2D)={
-    g.drawArc(10,10,20,20,0,180)
+  def paintSimpleShear(g: Graphics2D) = {
+	g.translate(50, 100)
+	g.shear(2,2)
+	g.drawRect(0,0,100,100)
+	
+	
   }
 }

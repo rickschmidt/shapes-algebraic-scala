@@ -25,10 +25,20 @@ class ExtendedDraw extends Draw {
       draw(g)(s)
       g.rotate(Math.toRadians(-r))
     }
-    case Polygon(s)=>println("points "+s)
+    case Polygon(points @ _*)=> 
+      val pts=points.toList.unzip{p=>{
+       (p.x,p.y) 
+      	}
+      }
+      g.drawPolygon(pts._1.toArray,pts._2.toArray,pts._1.size)
     case Fill(s)=>fill(g)(s)   
     case Outline(s)=>draw(g)(s)
-      
+     
+    case Shear(x,y,s)=>{
+      g.shear(x,y)
+      draw(g)(s)
+      g.shear(0,0)
+    }
       
     
     
